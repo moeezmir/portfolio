@@ -1,0 +1,2 @@
+$data = "Name: $name\nEmail: $email\nSubject: $subject\nMessage: $message\n---\n";
+file_put_contents("submissions.txt", $data, FILE_APPEND);
