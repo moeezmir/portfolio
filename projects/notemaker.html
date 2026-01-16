@@ -1,0 +1,262 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Notes Maker</title>
+  <style>
+    :root {
+      --bg: #f7f7f8;
+      --surface: #ffffff;
+      --border: #e5e7eb;
+      --muted: #f3f4f6;
+      --text: #111827;
+      --text-weak: #374151;
+      --accent: #2563eb;
+      --btn-bg: #111827;
+      --btn-text: #ffffff;
+      --focus: #2563eb;
+      --footer-bg: #ffffff;
+      --footer-text: #6b7280;
+      --link: #2563eb;
+    }
+    .dark {
+      --bg: #0b1020;
+      --surface: #0f172a;
+      --border: #1f2937;
+      --muted: #111827;
+      --text: #e5e7eb;
+      --text-weak: #cbd5e1;
+      --accent: #60a5fa;
+      --btn-bg: #111827;
+      --btn-text: #e5e7eb;
+      --focus: #60a5fa;
+      --footer-bg: #0f172a;
+      --footer-text: #94a3b8;
+      --link: #60a5fa;
+    }
+
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0; display: flex; flex-direction: column; min-height: 100%;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, sans-serif;
+      background: var(--bg); color: var(--text);
+    }
+
+    .topbar {
+      position: sticky; top: 0; z-index: 10;
+      display: flex; align-items: center; justify-content: space-between; gap: 12px;
+      padding: 12px 16px; background: var(--surface); border-bottom: 1px solid var(--border);
+    }
+
+    #addBtn {
+      background: var(--btn-bg); color: var(--btn-text); border: 0; padding: 8px 12px; border-radius: 8px; cursor: pointer;
+    }
+
+    #themeToggle {
+      background: transparent; color: var(--text); border: 1px solid var(--border); padding: 8px 12px; border-radius: 8px; cursor: pointer;
+    }
+
+    main { flex: 1 0 auto; }
+
+    .grid {
+      display: grid; gap: 16px; padding: 16px;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    }
+
+    .note {
+      background: var(--surface); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; display: flex; flex-direction: column;
+    }
+
+    .note header {
+      display: flex; gap: 8px; justify-content: flex-end; padding: 8px; background: var(--muted);
+    }
+
+    .note header button {
+      border: 0; background: transparent; cursor: pointer; color: var(--text-weak);
+    }
+
+    .note input.title {
+      background: var(--surface); color: var(--text);
+      border: 0; border-bottom: 1px solid var(--border); padding: 10px 12px; font-weight: 600; outline: none;
+    }
+
+    .note textarea.content {
+      background: var(--surface); color: var(--text);
+      border: 0; padding: 12px; min-height: 140px; resize: vertical; outline: none;
+    }
+
+    .note :focus { outline: 2px solid var(--focus); outline-offset: -2px; }
+
+    .footer { flex-shrink: 0; background: var(--footer-bg); border-top: 1px solid var(--border); color: var(--footer-text); }
+    .footer .container { max-width: 1100px; margin: 0 auto; padding: 16px; text-align: center; font-size: 14px; }
+    .footer a { color: var(--link); text-decoration: none; }
+    .footer a:hover { text-decoration: underline; }
+  </style>
+  <script>
+    // Initialize theme before paint
+    (function () {
+      const storageKey = 'notes.theme';
+      const stored = localStorage.getItem(storageKey);
+      const systemPrefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const mode = stored || (systemPrefersDark ? 'dark' : 'light');
+      if (mode === 'dark') {
+        document.documentElement.classList.add('dark');
+        document.documentElement.setAttribute('data-theme', 'dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+        document.documentElement.setAttribute('data-theme', 'light');
+      }
+    })();
+  </script>
+</head>
+<body>
+  <header class="topbar">
+    <h1>Notes</h1>
+    <div style="display:flex; gap:8px;">
+      <button id="themeToggle" type="button" aria-label="Toggle dark mode">🌗 Theme</button>
+      <button id="addBtn" aria-label="Add note">+ Add</button>
+    </div>
+  </header>
+
+  <main id="notesGrid" class="grid"></main>
+
+  <footer class="footer">
+    <div class="container">
+      <p>
+        <a href="https://moeezmir.netlify.app/" target="_blank" rel="noopener noreferrer">Made with ❤️ by Mir Moeez</a>
+      </p>
+    </div>
+  </footer>
+
+  <script>
+  // Theme toggle behavior
+  (function () {
+    const storageKey = 'notes.theme';
+    const btn = document.getElementById('themeToggle');
+
+    function setTheme(mode) {
+      const root = document.documentElement;
+      if (mode === 'dark') {
+        root.classList.add('dark');
+        root.setAttribute('data-theme', 'dark');
+      } else {
+        root.classList.remove('dark');
+        root.setAttribute('data-theme', 'light');
+      }
+      localStorage.setItem(storageKey, mode);
+      btn.textContent = mode === 'dark' ? '🌞 Light' : '🌙 Dark';
+    }
+
+    const isDark = document.documentElement.classList.contains('dark');
+    btn.textContent = isDark ? '🌞 Light' : '🌙 Dark';
+
+    btn.addEventListener('click', () => {
+      const darkNow = document.documentElement.classList.contains('dark');
+      setTheme(darkNow ? 'light' : 'dark');
+    });
+
+    const mql = window.matchMedia('(prefers-color-scheme: dark)');
+    const stored = localStorage.getItem(storageKey);
+    const onChange = (e) => {
+      if (!localStorage.getItem(storageKey)) {
+        setTheme(e.matches ? 'dark' : 'light');
+      }
+    };
+    if (!stored) {
+      if (typeof mql.addEventListener === 'function') mql.addEventListener('change', onChange);
+      else if (typeof mql.addListener === 'function') mql.addListener(onChange);
+    }
+  })();
+
+  // Notes app
+  const STORAGE_KEY = 'notes.v1';
+  const grid = document.getElementById('notesGrid');
+  const addBtn = document.getElementById('addBtn');
+
+  let notes = loadNotes();
+  seedIfEmpty();
+  renderAll();
+
+  addBtn.addEventListener('click', () => {
+    const n = { id: newId(), title: '', content: '', ts: Date.now() };
+    notes.unshift(n);
+    saveNotes();
+    renderOne(n, true);
+  });
+
+  function loadNotes() {
+    try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) || []; }
+    catch { return []; }
+  }
+
+  function saveNotes() {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(notes));
+  }
+
+  function newId() {
+    return (crypto.randomUUID ? crypto.randomUUID() : String(Date.now()) + Math.random().toString(16).slice(2));
+  }
+
+  function seedIfEmpty() {
+    if (!Array.isArray(notes) || notes.length === 0) {
+      const seed = {
+        id: newId(),
+        title: 'Welcome 👋',
+        content: 'This is your first note. Use the “+ Add” button to create more, and toggle 🌗 Theme for dark mode. 🗑️ use this icon to delete your note.',
+        ts: Date.now()
+      };
+      notes = [seed];
+      saveNotes();
+    }
+  }
+
+  function renderAll() {
+    grid.innerHTML = '';
+    notes.forEach(n => renderOne(n, false));
+  }
+
+  function renderOne(note, prepend) {
+    const card = document.createElement('article');
+    card.className = 'note';
+    card.dataset.id = note.id;
+    card.innerHTML = `
+      <header>
+        <button class="delete" title="Delete" aria-label="Delete note">🗑️</button>
+      </header>
+      <input class="title" placeholder="Title" value="${escapeHtml(note.title)}" />
+      <textarea class="content" placeholder="Write your note...">${escapeHtml(note.content)}</textarea>
+    `;
+
+    const onInput = debounce(() => {
+      const id = card.dataset.id;
+      const t = card.querySelector('.title').value;
+      const c = card.querySelector('.content').value;
+      const idx = notes.findIndex(n => n.id === id);
+      if (idx !== -1) { notes[idx].title = t; notes[idx].content = c; notes[idx].ts = Date.now(); saveNotes(); }
+    }, 300);
+
+    card.querySelector('.title').addEventListener('input', onInput);
+    card.querySelector('.content').addEventListener('input', onInput);
+
+    card.querySelector('.delete').addEventListener('click', () => {
+      const id = card.dataset.id;
+      notes = notes.filter(n => n.id !== id);
+      saveNotes();
+      card.remove();
+    });
+
+    prepend ? grid.prepend(card) : grid.appendChild(card);
+  }
+
+  // Utilities
+  function debounce(fn, ms) {
+    let t; return (...args) => { clearTimeout(t); t = setTimeout(() => fn(...args), ms); };
+  }
+  function escapeHtml(s='') {
+    return s.replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'": '&#39;'}[m]));
+  }
+  </script>
+</body>
+</html>

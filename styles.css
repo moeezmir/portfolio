@@ -871,3 +871,21 @@ html {
 ::-webkit-scrollbar-thumb:hover {
     background: #2980b9;
 }
+
+.footer-gif {
+  display: none; /* Hide by default */
+}
+/* Hide by default */
+.footer-gif {
+  display: none;
+}
+
+/* Show only on mobile */
+@media screen and (max-width: 768px) {
+  .footer-gif {
+    display: block;
+    width: 100%;
+  }
+}
+
+/* End of styles.css */

@@ -1,16 +1,19 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="auto">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Mir Moeez — Portfolio</title>
-  <meta name="description" content="Full Stack Developer & Problem Solver building accessible, user-friendly web experiences." />
+  <meta name="description"
+    content="Full Stack Developer & Problem Solver building accessible, user-friendly web experiences." />
   <meta name="color-scheme" content="light dark">
   <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    crossorigin="anonymous" referrerpolicy="no-referrer">
   <script>
     // 1) Inline, early theme script to avoid flash of wrong theme
-    (function(){
+    (function () {
       const STORAGE_KEY = "theme-preference";
       const stored = localStorage.getItem(STORAGE_KEY) || "auto";
       document.documentElement.setAttribute("data-theme", stored);
@@ -18,15 +21,17 @@
   </script>
   <style>
     /* Bigger social media icons */
-.social-link i {
-  font-size: 28px; /* try 28–36px as you like */
-}
-.social-link {
-  width: 48px;
-  height: 48px;
-}
+    .social-link i {
+      font-size: 28px;
+      /* try 28–36px as you like */
+    }
 
-    :root{
+    .social-link {
+      width: 48px;
+      height: 48px;
+    }
+
+    :root {
       --bg: #0b0c10;
       --surface: #111317;
       --text: #e6e6e6;
@@ -35,177 +40,599 @@
       --brand: #5dd3ff;
       --brand-2: #8ef6d4;
       --radius: 14px;
-      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --shadow: 0 10px 30px rgba(0, 0, 0, .35);
       color-scheme: dark light;
     }
-    @media (prefers-color-scheme: light){
-      :root{ --bg:#ffffff; --surface:#f6f8fb; --text:#111317; --muted:#4a5568; --border:#e6eaf0; }
-    }
-    html[data-theme="light"] :root{
-      --bg:#ffffff; --surface:#f6f8fb; --text:#111317; --muted:#4a5568; --border:#e6eaf0;
-    }
-    html[data-theme="dark"] :root{
-      --bg:#0b0c10; --surface:#111317; --text:#e6e6e6; --muted:#a9b0b8; --border:#1d222b;
+
+    @media (prefers-color-scheme: light) {
+      :root {
+        --bg: #ffffff;
+        --surface: #f6f8fb;
+        --text: #111317;
+        --muted: #4a5568;
+        --border: #e6eaf0;
+      }
     }
 
-    *{ box-sizing:border-box }
-    html,body{ margin:0; padding:0 }
-    body{
+    html[data-theme="light"] :root {
+      --bg: #ffffff;
+      --surface: #f6f8fb;
+      --text: #111317;
+      --muted: #4a5568;
+      --border: #e6eaf0;
+    }
+
+    html[data-theme="dark"] :root {
+      --bg: #0b0c10;
+      --surface: #111317;
+      --text: #e6e6e6;
+      --muted: #a9b0b8;
+      --border: #1d222b;
+    }
+
+    * {
+      box-sizing: border-box
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0
+    }
+
+    body {
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial;
       background: radial-gradient(1200px 1200px at 10% -10%, color-mix(in oklab, var(--brand) 10%, transparent) 0%, transparent 60%), var(--bg);
       color: var(--text);
       line-height: 1.6;
     }
-    img{ max-width:100%; display:block; height:auto }
 
-    .container{ width:min(1100px,92vw); margin-inline:auto }
-    .section{ padding: clamp(56px,8vw,100px) 0 }
+    img {
+      max-width: 100%;
+      display: block;
+      height: auto
+    }
+
+    .container {
+      width: min(1100px, 92vw);
+      margin-inline: auto
+    }
+
+    .section {
+      padding: clamp(56px, 8vw, 100px) 0
+    }
 
     /* Header + Nav */
-    .site-header{
-      position: sticky; top:0; z-index:100;
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
       backdrop-filter: blur(8px);
       background: color-mix(in oklab, var(--bg), transparent 20%);
-      border-bottom:1px solid var(--border);
-    }
-    .navbar{
-      display:grid; grid-template-columns: 1fr auto auto; align-items:center; gap:12px;
-      width:min(1100px,92vw); margin-inline:auto; padding:12px 0;
-    }
-    .nav-logo{ text-decoration:none; color:var(--text); font-weight:700; letter-spacing:.3px }
-    .nav-menu{ list-style:none; margin:0; padding:0; display:flex; gap: clamp(8px,3vw,28px) }
-    .nav-link{ text-decoration:none; color:var(--text); padding:10px 12px; border-radius:10px; border:1px solid transparent }
-    .nav-link:hover,.nav-link:focus-visible{ border-color:var(--border); background: color-mix(in oklab, var(--surface), transparent 10%) }
-
-    .nav-actions{ display:flex; gap:10px; align-items:center }
-
-    .icon-btn{
-      width:42px; height:42px; display:grid; place-items:center; border-radius:10px;
-      border:1px solid var(--border); background: var(--surface); color:var(--text); cursor:pointer
+      border-bottom: 1px solid var(--border);
     }
 
-    .nav-toggle{
-      width:44px; height:44px; display:grid; place-items:center; border-radius:10px;
-      border:1px solid var(--border); background: var(--surface); color:var(--text); cursor:pointer
+    .navbar {
+      display: grid;
+      grid-template-columns: 1fr auto auto;
+      align-items: center;
+      gap: 12px;
+      width: min(1100px, 92vw);
+      margin-inline: auto;
+      padding: 12px 0;
     }
-    .nav-toggle .bar{ width:20px; height:2px; background:var(--text); display:block; }
-    .nav-toggle .bar + .bar{ margin-top:3px }
+
+    .nav-logo {
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 700;
+      letter-spacing: .3px
+    }
+
+    .nav-menu {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      gap: clamp(8px, 3vw, 28px)
+    }
+
+    .nav-link {
+      text-decoration: none;
+      color: var(--text);
+      padding: 10px 12px;
+      border-radius: 10px;
+      border: 1px solid transparent
+    }
+
+    .nav-link:hover,
+    .nav-link:focus-visible {
+      border-color: var(--border);
+      background: color-mix(in oklab, var(--surface), transparent 10%)
+    }
+
+    .nav-actions {
+      display: flex;
+      gap: 10px;
+      align-items: center
+    }
+
+    .icon-btn {
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text);
+      cursor: pointer
+    }
+
+    .nav-toggle {
+      width: 44px;
+      height: 44px;
+      display: grid;
+      place-items: center;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text);
+      cursor: pointer
+    }
+
+    .nav-toggle .bar {
+      width: 20px;
+      height: 2px;
+      background: var(--text);
+      display: block;
+    }
+
+    .nav-toggle .bar+.bar {
+      margin-top: 3px
+    }
 
     /* Mobile menu */
-    @media (max-width: 820px){
-      .navbar{ grid-template-columns: 1fr auto auto }
-      .nav-menu{
-        grid-column: 1/-1; flex-direction:column; display:none; background:var(--surface);
-        border:1px solid var(--border); border-radius:14px; padding:10px
+    @media (max-width: 820px) {
+      .navbar {
+        grid-template-columns: 1fr auto auto
       }
-      .nav-menu.open{ display:flex }
+
+      .nav-menu {
+        grid-column: 1/-1;
+        flex-direction: column;
+        display: none;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        padding: 10px
+      }
+
+      .nav-menu.open {
+        display: flex
+      }
     }
 
     /* Skip */
-    .skip-link{
-      position:absolute; top:-40px; left:8px; background:var(--surface); color:var(--text);
-      padding:8px 12px; border-radius:8px; box-shadow:var(--shadow); transition: top .2s; z-index:1000;
+    .skip-link {
+      position: absolute;
+      top: -40px;
+      left: 8px;
+      background: var(--surface);
+      color: var(--text);
+      padding: 8px 12px;
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+      transition: top .2s;
+      z-index: 1000;
     }
-    .skip-link:focus{ top:8px }
+
+    .skip-link:focus {
+      top: 8px
+    }
 
     /* Hero */
-    .hero-grid{ display:grid; grid-template-columns:1.2fr .8fr; gap:clamp(20px,5vw,60px); align-items:center }
-    @media (max-width:820px){ .hero-grid{ grid-template-columns:1fr } }
-    .hero-title{ font-size: clamp(32px,6vw,56px); line-height:1.05; margin:0 0 10px }
-    .highlight{ color:var(--brand); text-shadow:0 6px 22px color-mix(in oklab, var(--brand) 30%, transparent) }
-    .hero-subtitle{ margin:0 0 10px; font-weight:600; color:var(--muted) }
-    .hero-description{ margin:0 0 22px; max-width:56ch }
-    .hero-actions{ display:flex; gap:12px; flex-wrap:wrap }
-    .hero-figure{ margin:0; justify-self:center; border-radius:20px; overflow:hidden; border:1px solid var(--border); box-shadow:var(--shadow) }
-    .hero-figure img{ aspect-ratio:1/1; object-fit:cover }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: clamp(20px, 5vw, 60px);
+      align-items: center
+    }
+
+    @media (max-width:820px) {
+      .hero-grid {
+        grid-template-columns: 1fr
+      }
+    }
+
+    .hero-title {
+      font-size: clamp(32px, 6vw, 56px);
+      line-height: 1.05;
+      margin: 0 0 10px
+    }
+
+    .highlight {
+      color: var(--brand);
+      text-shadow: 0 6px 22px color-mix(in oklab, var(--brand) 30%, transparent)
+    }
+
+    .hero-subtitle {
+      margin: 0 0 10px;
+      font-weight: 600;
+      color: var(--muted)
+    }
+
+    .hero-description {
+      margin: 0 0 22px;
+      max-width: 56ch
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap
+    }
+
+    .hero-figure {
+      margin: 0;
+      justify-self: center;
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow)
+    }
+
+    .hero-figure img {
+      aspect-ratio: 1/1;
+      object-fit: cover
+    }
 
     /* Buttons */
-    .btn{
-      --btn-bg: var(--surface); --btn-brd: var(--border); --btn-fg: var(--text);
-      display:inline-block; padding:12px 16px; border-radius:12px; text-decoration:none;
-      color:var(--btn-fg); background:var(--btn-bg); border:1px solid var(--btn-brd);
+    .btn {
+      --btn-bg: var(--surface);
+      --btn-brd: var(--border);
+      --btn-fg: var(--text);
+      display: inline-block;
+      padding: 12px 16px;
+      border-radius: 12px;
+      text-decoration: none;
+      color: var(--btn-fg);
+      background: var(--btn-bg);
+      border: 1px solid var(--btn-brd);
       transition: transform .06s ease, background .2s;
     }
-    .btn:active{ transform: translateY(1px) }
-    .btn-primary{
-      --btn-bg: linear-gradient(135deg, var(--brand), var(--brand-2));
-      --btn-brd: transparent; color:#0b0c10; font-weight:700;
+
+    .btn:active {
+      transform: translateY(1px)
     }
-    .btn-secondary{ background: color-mix(in oklab, var(--surface), transparent 8%) }
+
+    .btn-primary {
+      --btn-bg: linear-gradient(135deg, var(--brand), var(--brand-2));
+      --btn-brd: transparent;
+      color: #0b0c10;
+      font-weight: 700;
+    }
+
+    .btn-secondary {
+      background: color-mix(in oklab, var(--surface), transparent 8%)
+    }
 
     /* About */
-    .about-grid{ display:grid; grid-template-columns:1fr .7fr; gap: clamp(20px,4vw,48px) }
-    @media (max-width:900px){ .about-grid{ grid-template-columns:1fr } }
-    .stats{ list-style:none; margin:22px 0 0; padding:0; display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px }
-    .stat{ border:1px solid var(--border); background:var(--surface); padding:14px; border-radius:var(--radius); text-align:center }
-    .stat-num{ display:block; font-size: clamp(22px,4vw,30px); font-weight:800 }
-    .stat-label{ color:var(--muted); font-size:14px }
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr .7fr;
+      gap: clamp(20px, 4vw, 48px)
+    }
 
-    .icon-card{
-      display:grid; place-items:center; border:1px solid var(--border);
+    @media (max-width:900px) {
+      .about-grid {
+        grid-template-columns: 1fr
+      }
+    }
+
+    .stats {
+      list-style: none;
+      margin: 22px 0 0;
+      padding: 0;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px
+    }
+
+    .stat {
+      border: 1px solid var(--border);
+      background: var(--surface);
+      padding: 14px;
+      border-radius: var(--radius);
+      text-align: center
+    }
+
+    .stat-num {
+      display: block;
+      font-size: clamp(22px, 4vw, 30px);
+      font-weight: 800
+    }
+
+    .stat-label {
+      color: var(--muted);
+      font-size: 14px
+    }
+
+    .icon-card {
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--border);
       background: radial-gradient(600px 400px at 20% -10%, color-mix(in oklab, var(--brand) 12%, transparent) 0%, transparent 60%), var(--surface);
-      border-radius:18px; height:220px; box-shadow:var(--shadow); font-size:56px; color:var(--brand)
+      border-radius: 18px;
+      height: 220px;
+      box-shadow: var(--shadow);
+      font-size: 56px;
+      color: var(--brand)
     }
 
     /* Skills */
-    .skills-grid{ display:grid; gap:16px; grid-template-columns:repeat(3,minmax(0,1fr)) }
-    @media (max-width:900px){ .skills-grid{ grid-template-columns:1fr } }
-    .skill-category{ border:1px solid var(--border); background:var(--surface); border-radius:var(--radius); padding:18px }
-    .skill-title{ margin:0 0 12px; font-size:18px }
-    .skill-items{ display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; list-style:none; padding:0; margin:0 }
-    .skill-item{ display:flex; align-items:center; gap:10px; padding:10px 10px; border:1px dashed var(--border); border-radius:12px; background: color-mix(in oklab, var(--surface), transparent 6%) }
+    .skills-grid {
+      display: grid;
+      gap: 16px;
+      grid-template-columns: repeat(3, minmax(0, 1fr))
+    }
+
+    @media (max-width:900px) {
+      .skills-grid {
+        grid-template-columns: 1fr
+      }
+    }
+
+    .skill-category {
+      border: 1px solid var(--border);
+      background: var(--surface);
+      border-radius: var(--radius);
+      padding: 18px
+    }
+
+    .skill-title {
+      margin: 0 0 12px;
+      font-size: 18px
+    }
+
+    .skill-items {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      list-style: none;
+      padding: 0;
+      margin: 0
+    }
+
+    .skill-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 10px;
+      border: 1px dashed var(--border);
+      border-radius: 12px;
+      background: color-mix(in oklab, var(--surface), transparent 6%)
+    }
 
     /* Projects */
-    .projects-grid{ display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px; container-type:inline-size }
-    @media (max-width:1100px){ .projects-grid{ grid-template-columns:repeat(2,minmax(0,1fr)) } }
-    @media (max-width:680px){ .projects-grid{ grid-template-columns:1fr } }
-    @container (max-width:480px){ .project-image{ height:150px } }
-    .project-card{ border:1px solid var(--border); background:var(--surface); border-radius:16px; overflow:clip; display:grid; grid-template-rows:auto 1fr; min-height:100% }
-    .project-image{ width:100%; height:180px; object-fit:cover; background:#0002 }
-    .project-content{ padding:14px; display:grid; gap:6px }
-    .project-title{ margin:4px 0 0; font-size:18px }
-    .project-description{ margin:0 0 8px; color:var(--muted) }
-    .project-link{ justify-self:start; text-decoration:none; color:#0b0c10; background: linear-gradient(135deg, var(--brand), var(--brand-2)); border-radius:10px; padding:8px 12px; font-weight:700; border:1px solid transparent }
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+      container-type: inline-size
+    }
+
+    @media (max-width:1100px) {
+      .projects-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr))
+      }
+    }
+
+    @media (max-width:680px) {
+      .projects-grid {
+        grid-template-columns: 1fr
+      }
+    }
+
+    @container (max-width:480px) {
+      .project-image {
+        height: 150px
+      }
+    }
+
+    .project-card {
+      border: 1px solid var(--border);
+      background: var(--surface);
+      border-radius: 16px;
+      overflow: clip;
+      display: grid;
+      grid-template-rows: auto 1fr;
+      min-height: 100%
+    }
+
+    .project-image {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      background: #0002
+    }
+
+    .project-content {
+      padding: 14px;
+      display: grid;
+      gap: 6px
+    }
+
+    .project-title {
+      margin: 4px 0 0;
+      font-size: 18px
+    }
+
+    .project-description {
+      margin: 0 0 8px;
+      color: var(--muted)
+    }
+
+    .project-link {
+      justify-self: start;
+      text-decoration: none;
+      color: #0b0c10;
+      background: linear-gradient(135deg, var(--brand), var(--brand-2));
+      border-radius: 10px;
+      padding: 8px 12px;
+      font-weight: 700;
+      border: 1px solid transparent
+    }
 
     /* Contact */
-    .contact-grid{ display:grid; grid-template-columns:1.1fr .9fr; gap: clamp(18px,4vw,36px) }
-    @media (max-width:900px){ .contact-grid{ grid-template-columns:1fr } }
-    .contact-methods{ list-style:none; padding:0; margin:16px 0 18px; display:grid; gap:10px }
-    .contact-method{ display:grid; grid-template-columns:auto 1fr; gap:12px; align-items:start; border:1px solid var(--border); background:var(--surface); border-radius:12px; padding:12px }
-    .contact-method i{ color:var(--brand) }
-
-    .social-links{ display:flex; gap:10px; flex-wrap:wrap }
-    .social-link{ width:40px; height:40px; display:grid; place-items:center; border-radius:10px; background: color-mix(in oklab, var(--surface), transparent 6%); border:1px solid var(--border); color:var(--text); text-decoration:none }
-
-    .contact-form{ display:grid; gap:12px; border:1px solid var(--border); background:var(--surface); border-radius:16px; padding:16px }
-    .form-group{ display:grid; gap:6px }
-    label{ font-size:14px; color:var(--muted) }
-    input, select, textarea{
-      width:100%; padding:12px 12px; border-radius:10px; background: color-mix(in oklab, var(--surface), transparent 10%);
-      border:1px solid var(--border); color:var(--text); outline:none
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: clamp(18px, 4vw, 36px)
     }
-    input:focus-visible, select:focus-visible, textarea:focus-visible{
+
+    @media (max-width:900px) {
+      .contact-grid {
+        grid-template-columns: 1fr
+      }
+    }
+
+    .contact-methods {
+      list-style: none;
+      padding: 0;
+      margin: 16px 0 18px;
+      display: grid;
+      gap: 10px
+    }
+
+    .contact-method {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 12px;
+      align-items: start;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      border-radius: 12px;
+      padding: 12px
+    }
+
+    .contact-method i {
+      color: var(--brand)
+    }
+
+    .social-links {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap
+    }
+
+    .social-link {
+      width: 40px;
+      height: 40px;
+      display: grid;
+      place-items: center;
+      border-radius: 10px;
+      background: color-mix(in oklab, var(--surface), transparent 6%);
+      border: 1px solid var(--border);
+      color: var(--text);
+      text-decoration: none
+    }
+
+    .contact-form {
+      display: grid;
+      gap: 12px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      border-radius: 16px;
+      padding: 16px
+    }
+
+    .form-group {
+      display: grid;
+      gap: 6px
+    }
+
+    label {
+      font-size: 14px;
+      color: var(--muted)
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      padding: 12px 12px;
+      border-radius: 10px;
+      background: color-mix(in oklab, var(--surface), transparent 10%);
+      border: 1px solid var(--border);
+      color: var(--text);
+      outline: none
+    }
+
+    input:focus-visible,
+    select:focus-visible,
+    textarea:focus-visible {
       border-color: var(--brand);
       box-shadow: 0 0 0 3px color-mix(in oklab, var(--brand) 40%, transparent);
     }
-    .form-row{ display:grid; gap:12px; grid-template-columns:1fr 1fr }
-    @media (max-width:560px){ .form-row{ grid-template-columns:1fr } }
 
-    .form-note{ font-size:13px; color:var(--muted) }
-
-    .form-status{
-      display:none; border-radius:12px; padding:12px; border:1px solid var(--border); background: color-mix(in oklab, var(--surface), transparent 6%);
+    .form-row {
+      display: grid;
+      gap: 12px;
+      grid-template-columns: 1fr 1fr
     }
-    .form-status.success{ display:block; border-color:#1f8b4c; background: color-mix(in oklab, #1f8b4c 10%, var(--surface)); color:#e7ffef }
-    .form-status.error{ display:block; border-color:#a13b3b; background: color-mix(in oklab, #a13b3b 10%, var(--surface)); color:#fff0f0 }
+
+    @media (max-width:560px) {
+      .form-row {
+        grid-template-columns: 1fr
+      }
+    }
+
+    .form-note {
+      font-size: 13px;
+      color: var(--muted)
+    }
+
+    .form-status {
+      display: none;
+      border-radius: 12px;
+      padding: 12px;
+      border: 1px solid var(--border);
+      background: color-mix(in oklab, var(--surface), transparent 6%);
+    }
+
+    .form-status.success {
+      display: block;
+      border-color: #1f8b4c;
+      background: color-mix(in oklab, #1f8b4c 10%, var(--surface));
+      color: #e7ffef
+    }
+
+    .form-status.error {
+      display: block;
+      border-color: #a13b3b;
+      background: color-mix(in oklab, #a13b3b 10%, var(--surface));
+      color: #fff0f0
+    }
 
     /* Footer */
-    .footer{ border-top:1px solid var(--border); padding:18px 0; text-align:center; color:var(--muted) }
+    .footer {
+      border-top: 1px solid var(--border);
+      padding: 18px 0;
+      text-align: center;
+      color: var(--muted)
+    }
 
     /* Motion */
-    @media (prefers-reduced-motion: reduce){ *{ animation:none !important; transition:none !important } }
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        animation: none !important;
+        transition: none !important
+      }
+    }
   </style>
 </head>
+
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
 
@@ -215,12 +642,14 @@
 
       <div class="nav-actions">
         <!-- Theme toggle (Auto → Dark → Light) -->
-        <button id="theme-toggle" class="icon-btn" type="button" aria-pressed="false" aria-label="Toggle theme" title="Toggle theme">
+        <button id="theme-toggle" class="icon-btn" type="button" aria-pressed="false" aria-label="Toggle theme"
+          title="Toggle theme">
           <i class="fa-solid fa-circle-half-stroke"></i>
         </button>
 
         <!-- Mobile menu toggle -->
-        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-menu" aria-label="Toggle menu">
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-menu"
+          aria-label="Toggle menu">
           <span class="bar" aria-hidden="true"></span>
           <span class="bar" aria-hidden="true"></span>
           <span class="bar" aria-hidden="true"></span>
@@ -243,15 +672,18 @@
       <div class="container hero-grid">
         <div class="hero-content">
           <h1 class="hero-title">Hi, I'm <span class="highlight">Moeez</span></h1>
-          <p class="hero-subtitle">Full Stack Developer & Problem Solver</p>
-          <p class="hero-description">I build intuitive, accessible web experiences that solve real-world problems. I blend code with clarity and creativity.</p>
+          <p class="hero-subtitle">Full Stack Developer & Programmer | Problem Solver</p>
+          <p class="hero-description">I build intuitive, accessible web experiences that solve real-world problems. I
+            blend code with clarity and creativity.</p>
           <div class="hero-actions">
             <a class="btn btn-primary" href="resume.pdf" download>Download my Resume</a>
             <a class="btn btn-secondary" href="#contact">Get In Touch</a>
           </div>
         </div>
         <figure class="hero-figure">
-          <img src="images/my.jpg" alt="Portrait of Mir Moeez" loading="lazy" width="480" height="480">
+          <img
+            src="https://private-user-images.githubusercontent.com/74038190/250967618-de30015f-dc5f-4ecf-a49b-ccd2b89776e4.gif?jwt=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3Njg1Nzc4MDEsIm5iZiI6MTc2ODU3NzUwMSwicGF0aCI6Ii83NDAzODE5MC8yNTA5Njc2MTgtZGUzMDAxNWYtZGM1Zi00ZWNmLWE0OWItY2NkMmI4OTc3NmU0LmdpZj9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNjAxMTYlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjYwMTE2VDE1MzE0MVomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPWQ4ZjhkN2YyMWFmNTk5YzVlZmNhZDQ3MTY4MzFlYmQwNDQwM2ZmMTQ3NGU3NmIwODgwYjBhZTg4MWY2MWIxZTMmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.lBg_L1F72vZEdyqV7kCqdqTXSp2bjT31OfXMDuxSmWg"
+            alt="Portrait of Mir Moeez" loading="lazy" width="480" height="480">
         </figure>
       </div>
     </section>
@@ -262,10 +694,16 @@
         <h2 class="section-title">About Me</h2>
         <div class="about-grid">
           <div>
-            <p>I design and develop accessible, user-friendly websites and applications that solve practical problems. From fixing layout issues to writing clean, scalable code, I focus on building solutions that work—and teaching others how to do the same.</p>
-            <p>I'm a passionate full-stack developer with experience in modern web technologies. I love creating user-friendly applications that make a difference in people's lives.</p>
+            <p>I design and develop accessible, user-friendly websites and applications that solve practical problems.
+              From fixing layout issues to writing clean, scalable code, I focus on building solutions that work—and
+              teaching others how to do the same.</p>
+
+            <p>I'm a passionate full-stack developer with experience in modern web technologies. I love creating
+              user-friendly applications that make a difference in people's lives. Alongside my expertise in frontend
+              and backend development, I also program in Java, Python, C, and C++—building versatile solutions across
+              different platforms and teaching these languages to help others grow their skills.</p>
             <ul class="stats">
-              <li class="stat"><span class="stat-num">3+</span><span class="stat-label">Years Experience</span></li>
+              <li class="stat"><span class="stat-num">5+</span><span class="stat-label">Years Experience</span></li>
               <li class="stat"><span class="stat-num">15+</span><span class="stat-label">Projects Completed</span></li>
               <li class="stat"><span class="stat-num">5+</span><span class="stat-label">Technologies</span></li>
             </ul>
@@ -307,7 +745,8 @@
               <li class="skill-item"><i class="fab fa-github" aria-hidden="true"></i><span>GitHub</span></li>
               <li class="skill-item"><i class="fas fa-cloud" aria-hidden="true"></i><span>AWS</span></li>
               <li class="skill-item"><i class="fab fa-docker" aria-hidden="true"></i><span>Docker</span></li>
-              <li class="skill-item"><i class="fas fa-mobile-alt" aria-hidden="true"></i><span>Responsive Design</span></li>
+              <li class="skill-item"><i class="fas fa-mobile-alt" aria-hidden="true"></i><span>Responsive Design</span>
+              </li>
             </ul>
           </section>
         </div>
@@ -320,51 +759,73 @@
         <h2 class="section-title">Projects</h2>
         <div class="projects-grid">
           <article class="project-card">
-            <img class="project-image" src="images/bin.png" alt="Basic ITI Notes website preview" loading="lazy" width="640" height="360">
+            <img class="project-image" src="images/sn.png" alt="Basic ITI Notes website preview" loading="lazy"
+              width="640" height="360">
             <div class="project-content">
-              <h3 class="project-title">Basic ITI Notes</h3>
-              <p class="project-description">Simplifying ITI learning—notes, assignments, and support in one place.</p>
-              <a class="project-link" href="https://basicitinotes.netlify.app/" target="_blank" rel="noopener">View Project</a>
+              <h3 class="project-title">Skyline Computer Notes</h3>
+              <p class="project-description">Simplifying Computer learning—notes, assignments, and support in one place.
+              </p>
+              <a class="project-link" href="https://skylinenotes.netlify.app/" target="_blank" rel="noopener">View
+                Project</a>
+              <a class="btn" href="https://github.com/moeezmir/Skyline-computers-notes-Website.git" target="_blank"
+                rel="noopener">Repo</a>
             </div>
           </article>
           <article class="project-card">
-            <img class="project-image" src="images/ss.png" alt="Software Site preview" loading="lazy" width="640" height="360">
+            <img class="project-image" src="images/rb.png" alt="Software Site preview" loading="lazy" width="640"
+              height="360">
             <div class="project-content">
-              <h3 class="project-title">Software Site</h3>
-              <p class="project-description">A site for downloading software used in ITI courses.</p>
-              <a class="project-link" href="https://thesoftwaresite.netlify.app/" target="_blank" rel="noopener">View Project</a>
+              <h3 class="project-title">Resume Builder</h3>
+              <p class="project-description"></p>
+              <a class="project-link" href="https://resugencv.netlify.app/" target="_blank" rel="noopener">View
+                Project</a>
+              <a class="btn" href="https://github.com/moeezmir/Resume-Builder.git" target="_blank"
+                rel="noopener">Repo</a>
             </div>
           </article>
           <article class="project-card">
-            <img class="project-image" src="images/nn.png" alt="Neuroniche Academy preview" loading="lazy" width="640" height="360">
+            <img class="project-image" src="images/nn.png" alt="Neuroniche Academy preview" loading="lazy" width="640"
+              height="360">
             <div class="project-content">
               <h3 class="project-title">Neuroniche Academy</h3>
               <p class="project-description">An innovative learning space built to empower curious minds.</p>
-              <a class="project-link" href="https://neuroniche.netlify.app/" target="_blank" rel="noopener">View Project</a>
+              <a class="project-link" href="https://neuroniche.netlify.app/" target="_blank" rel="noopener">View
+                Project</a>
+              <a class="btn" href="https://github.com/moeezmir/Neuroniche-Academy.git" target="_blank"
+                rel="noopener">Repo</a>
             </div>
           </article>
           <article class="project-card">
-            <img class="project-image" src="images/iii.png" alt="Skyline Computers preview" loading="lazy" width="640" height="360">
+            <img class="project-image" src="images/nm.png" alt="Notemaker preview" loading="lazy" width="640"
+              height="360">
             <div class="project-content">
-              <h3 class="project-title">Skyline Computers</h3>
-              <p class="project-description">A modern computer centre focused on practical skills and digital empowerment.</p>
-              <a class="project-link" href="https://skyline-computer.netlify.app/" target="_blank" rel="noopener">View Project</a>
+              <h3 class="project-title">NoteMaker</h3>
+              <p class="project-description">Uses JS to save and add notes and uses them to remember staff.</p>
+              <a class="project-link" href="https://moeezmir.netlify.app/projects/notemaker.html" target="_blank"
+                rel="noopener">View Project</a>
+              <a class="btn" href="https://github.com/moeezmir/Notemaker.git" target="_blank" rel="noopener">Repo</a>
             </div>
           </article>
           <article class="project-card">
-            <img class="project-image" src="images/gnd.png" alt="Games Network Direct preview" loading="lazy" width="640" height="360">
+            <img class="project-image" src="images/gnd.png" alt="Games Network Direct preview" loading="lazy"
+              width="640" height="360">
             <div class="project-content">
               <h3 class="project-title">Games Network Direct</h3>
               <p class="project-description">Your go-to hub for safe, speedy access to epic games.</p>
-              <a class="project-link" href="https://gamesnetworkdirect.netlify.app/" target="_blank" rel="noopener">View Project</a>
+              <a class="project-link" href="https://gamesnetworkdirect.netlify.app/" target="_blank" rel="noopener">View
+                Project</a>
+              <a class="btn" href="https://github.com/moeezmir/Games-Network-Direct.git" target="_blank"
+                rel="noopener">Repo</a>
             </div>
           </article>
           <article class="project-card">
-            <img class="project-image" src="images/more.png" alt="Other projects preview" loading="lazy" width="640" height="360" style="object-fit:cover">
+            <img class="project-image" src="images/more.png" alt="Other projects preview" loading="lazy" width="640"
+              height="360" style="object-fit:cover">
             <div class="project-content">
               <h3 class="project-title">Other Projects</h3>
               <p class="project-description">Explore experiments, utilities, and in-progress ideas.</p>
-              <a class="project-link" href="https://projectmir.netlify.app/" target="_blank" rel="noopener">View Project</a>
+              <a class="project-link" href="projects.html" target="_blank" rel="noopener">View Project</a>
+              <a class="btn" href="https://github.com/moeezmir" target="_blank" rel="noopener">To GitHub</a>
             </div>
           </article>
         </div>
@@ -378,7 +839,8 @@
         <div class="contact-grid">
           <div>
             <h3>Let's work together!</h3>
-            <p>Always interested in new opportunities and meaningful projects. Reach out to collaborate or just say hello.</p>
+            <p>Always interested in new opportunities and meaningful projects. Reach out to collaborate or just say
+              hello.</p>
 
             <ul class="contact-methods">
               <li class="contact-method">
@@ -405,15 +867,21 @@
             </ul>
 
             <div class="social-links" aria-label="Social links">
-              <a class="social-link" href="https://github.com/moeezmir" aria-label="GitHub" target="_blank" rel="noopener"><i class="fab fa-github"></i></a>
-              <a class="social-link" href="https://www.linkedin.com/in/mir-moeez-860b5b334" aria-label="LinkedIn" target="_blank" rel="noopener"><i class="fab fa-linkedin"></i></a>
-              <a class="social-link" href="https://x.com/thypholosion" aria-label="X (Twitter)" target="_blank" rel="noopener"><i class="fab fa-x-twitter"></i></a>
-              <a class="social-link" href="https://www.facebook.com/moeezmirI" aria-label="Facebook" target="_blank" rel="noopener"><i class="fab fa-facebook"></i></a>
-              <a class="social-link" href="https://www.instagram.com/moeez_mir_" aria-label="Instagram" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
+              <a class="social-link" href="https://github.com/moeezmir" aria-label="GitHub" target="_blank"
+                rel="noopener"><i class="fab fa-github"></i></a>
+              <a class="social-link" href="https://www.linkedin.com/in/mir-moeez-860b5b334" aria-label="LinkedIn"
+                target="_blank" rel="noopener"><i class="fab fa-linkedin"></i></a>
+              <a class="social-link" href="https://x.com/thypholosion" aria-label="X (Twitter)" target="_blank"
+                rel="noopener"><i class="fab fa-x-twitter"></i></a>
+              <a class="social-link" href="https://www.facebook.com/moeezmirI" aria-label="Facebook" target="_blank"
+                rel="noopener"><i class="fab fa-facebook"></i></a>
+              <a class="social-link" href="https://www.instagram.com/moeez_mir_" aria-label="Instagram" target="_blank"
+                rel="noopener"><i class="fab fa-instagram"></i></a>
             </div>
           </div>
 
-          <form id="contact-form" class="contact-form" action="https://api.web3forms.com/submit" method="POST" novalidate>
+          <form id="contact-form" class="contact-form" action="https://api.web3forms.com/submit" method="POST"
+            novalidate>
             <input type="hidden" name="access_key" value="91e2017f-e868-4f78-9d67-47fef7350fd6">
 
             <div class="form-row">
@@ -461,26 +929,33 @@
     </section>
   </main>
 
-  <footer class="footer"><div class="container"><p>Built with ❤️ by Mir Moeez</p></div></footer>
+  <footer class="footer">
+    <div class="container">
+      <p>Built with ❤️ by Mir Moeez</p>
+    </div>
+    <img src="https://user-images.githubusercontent.com/74038190/212284115-f47cd8ff-2ffb-4b04-b5bf-4d1c14c0247f.gif" alt="" alt="Footer Animation" class="footer-gif" width="100%">
+    <img src="https://user-images.githubusercontent.com/74038190/212284158-e840e285-664b-44d7-b79b-e264b5e54825.gif" alt="Footer Animation" class="footer-gif" width="100%">
+  </footer>
+ 
 
   <script>
     // 2) Theme logic: Auto ↔ Dark ↔ Light, persist, reflect icon/pressed state
-    (function(){
+    (function () {
       const STORAGE_KEY = "theme-preference";
       const btn = document.getElementById("theme-toggle");
       const root = document.documentElement;
 
-      function getStored(){ return localStorage.getItem(STORAGE_KEY) || "auto"; }
-      function setStored(val){ localStorage.setItem(STORAGE_KEY, val); }
+      function getStored() { return localStorage.getItem(STORAGE_KEY) || "auto"; }
+      function setStored(val) { localStorage.setItem(STORAGE_KEY, val); }
 
-      function isDarkNow(pref){
+      function isDarkNow(pref) {
         if (pref === "dark") return true;
         if (pref === "light") return false;
         // auto -> follow system
         return window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
       }
 
-      function render(pref){
+      function render(pref) {
         root.setAttribute("data-theme", pref);
         const dark = isDarkNow(pref);
         btn.setAttribute("aria-pressed", String(dark));
@@ -490,7 +965,7 @@
           : dark ? '<i class="fa-solid fa-sun"></i>' : '<i class="fa-solid fa-moon"></i>';
       }
 
-      function next(pref){
+      function next(pref) {
         // Cycle: auto -> dark -> light -> auto
         if (pref === "auto") return "dark";
         if (pref === "dark") return "light";
@@ -500,7 +975,7 @@
       let current = getStored();
       render(current);
 
-      if (window.matchMedia){
+      if (window.matchMedia) {
         window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", () => {
           if (getStored() === "auto") render("auto");
         });
@@ -514,10 +989,10 @@
     })();
 
     // Mobile nav toggle
-    (function(){
+    (function () {
       const toggle = document.querySelector('.nav-toggle');
       const menu = document.getElementById('primary-menu');
-      function setExpanded(expanded){
+      function setExpanded(expanded) {
         toggle.setAttribute('aria-expanded', expanded);
         menu.classList.toggle('open', expanded);
       }
@@ -530,13 +1005,13 @@
     })();
 
     // Async form submit with inline success/error message
-    (function(){
+    (function () {
       const form = document.getElementById('contact-form');
       const status = document.getElementById('form-status');
       const submitBtn = document.getElementById('submit-btn');
       const btnText = submitBtn.querySelector('.btn-text');
 
-      function setLoading(loading){
+      function setLoading(loading) {
         submitBtn.disabled = loading;
         btnText.textContent = loading ? "Sending..." : "Send Message";
       }
@@ -545,31 +1020,32 @@
         e.preventDefault();
         status.className = 'form-status';
         status.textContent = '';
-        if (!form.checkValidity()){
+        if (!form.checkValidity()) {
           status.classList.add('error');
           status.textContent = 'Please complete all required fields correctly.';
           return;
         }
         setLoading(true);
-        try{
+        try {
           const formData = new FormData(form);
-          const res = await fetch(form.action, { method: form.method, body: formData, headers: { Accept: "application/json" }});
-          if (res.ok){
+          const res = await fetch(form.action, { method: form.method, body: formData, headers: { Accept: "application/json" } });
+          if (res.ok) {
             form.reset();
             status.classList.add('success');
             status.textContent = 'Thanks! Your message has been sent. You will receive a confirmation shortly.';
-          }else{
+          } else {
             status.classList.add('error');
             status.textContent = 'Sorry, something went wrong. Please try again in a moment.';
           }
-        }catch(err){
+        } catch (err) {
           status.classList.add('error');
           status.textContent = 'Network error. Please check your connection and try again.';
-        }finally{
+        } finally {
           setLoading(false);
         }
       });
     })();
   </script>
 </body>
+
 </html>

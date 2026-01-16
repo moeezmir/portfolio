@@ -1,0 +1,19 @@
+<article class="card reveal" data-tilt data-tilt-max="12" data-tilt-speed="600" data-tilt-glare="true" data-tilt-max-glare="0.18">
+  <div class="thumb">
+    <img src="YOUR_IMAGE_URL.jpg" alt="Project thumbnail">
+    <div class="strip" aria-hidden="true"></div>
+  </div>
+  <div class="body">
+    <h3 class="title">Your Project Title</h3>
+    <p class="desc">One‑line description of what this project does or explores.</p>
+    <div class="tags">
+      <span class="tag">HTML</span>
+      <span class="tag">CSS</span>
+      <!-- add or remove tags -->
+    </div>
+    <div class="row">
+      <a class="btn" href="https://live.example.com" target="_blank" rel="noopener">Live</a>
+      <a class="btn" href="https://github.com/you/repo" target="_blank" rel="noopener">Repo</a>
+    </div>
+  </div>
+</article>
