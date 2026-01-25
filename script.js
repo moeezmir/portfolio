@@ -162,3 +162,53 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   })();
 });
+
+// ===============================
+// Typing effect for hero section
+const texts = [
+  'Full Stack Developer', 
+  'Programmer', 
+  'Problem Solver', 
+  'Freelancer'
+];
+
+const typingEl = document.querySelector('.typing');
+let textIndex = 0;
+let charIndex = 0;
+let isDeleting = false;
+
+function typeWriter() {
+  const currentText = texts[textIndex];
+  
+  if (isDeleting) {
+    // Backspace effect
+    typingEl.textContent = currentText.substring(0, charIndex - 1);
+    charIndex--;
+    
+    if (charIndex === 0) {
+      isDeleting = false;
+      textIndex = (textIndex + 1) % texts.length;
+      setTimeout(typeWriter, 500); // Pause before next phrase
+      return;
+    }
+  } else {
+    // Typing effect
+    typingEl.textContent = currentText.substring(0, charIndex + 1);
+    charIndex++;
+    
+    if (charIndex === currentText.length) {
+      setTimeout(() => {
+        isDeleting = true;
+        typeWriter();
+      }, 2000); // Pause at full text
+      return;
+    }
+  }
+  
+  const speed = isDeleting ? 50 : 100; // Faster backspace
+  setTimeout(typeWriter, speed);
+}
+
+typeWriter(); // Start the magic
+
+// ===============================
