@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moeez Mir - Full Stack Developer</title>
+    <style>
+        :root {
+            --green-primary: #10B981;
+            --green-dark: #047857;
+            --green-light: #D1FAE5;
+            --white: #FFFFFF;
+            --off-white: #F9FAFB;
+            --text-dark: #111827;
+            --text-light: #6B7280;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; line-height: 1.6; color: var(--text-dark); background: var(--white); }
+        
+        /* Header/Hero */
+        header { background: var(--off-white); padding: 1rem 0; position: sticky; top: 0; z-index: 10; border-bottom: 1px solid var(--green-light); }
+        nav { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 2rem; }
+        .logo { font-size: 1.5rem; font-weight: bold; color: var(--green-dark); }
+        .nav-links { display: flex; list-style: none; gap: 2rem; }
+        .nav-links a { color: var(--text-dark); text-decoration: none; transition: color 0.3s; }
+        .nav-links a:hover { color: var(--green-primary); }
+        
+        .hero { max-width: 1200px; margin: 4rem auto; padding: 0 2rem; text-align: center; }
+        .hero h1 { font-size: 3.5rem; margin-bottom: 1rem; background: linear-gradient(135deg, var(--green-dark), var(--green-primary)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero p { font-size: 1.25rem; color: var(--text-light); max-width: 600px; margin: 0 auto 2rem; }
+        .btn-primary { background: var(--green-primary); color: var(--white); padding: 1rem 2rem; border: none; border-radius: 8px; font-size: 1.1rem; text-decoration: none; transition: all 0.3s; display: inline-block; }
+        .btn-primary:hover { background: var(--green-dark); transform: translateY(-2px); box-shadow: 0 10px 20px rgba(16, 185, 129, 0.3); }
+        
+        /* Projects */
+        .projects { background: var(--off-white); padding: 4rem 2rem; }
+        .container { max-width: 1200px; margin: 0 auto; }
+        h2 { font-size: 2.5rem; text-align: center; margin-bottom: 3rem; color: var(--green-dark); }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+        .project-card { background: var(--white); border-radius: 12px; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.1); transition: transform 0.3s, box-shadow 0.3s; border: 1px solid var(--green-light); }
+        .project-card:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(16, 185, 129, 0.2); }
+        .project-card img { width: 100%; height: 200px; object-fit: cover; }
+        .project-info { padding: 1.5rem; }
+        .project-info h3 { color: var(--green-dark); margin-bottom: 0.5rem; }
+        .project-info p { color: var(--text-light); margin-bottom: 1rem; }
+        .project-link { color: var(--green-primary); text-decoration: none; font-weight: 500; }
+        .project-link:hover { text-decoration: underline; }
+        
+        /* About/Contact */
+        .about { padding: 4rem 2rem; max-width: 800px; margin: 0 auto; text-align: center; }
+        .contact { background: var(--green-light); padding: 4rem 2rem; text-align: center; }
+        .contact a { color: var(--green-dark); font-weight: bold; }
+        
+        @media (max-width: 768px) { .hero h1 { font-size: 2.5rem; } .nav-links { display: none; } } /* Mobile tweaks */
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Moeez Mir</div>
+            <ul class="nav-links">
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <section class="hero">
+        <h1>Full Stack Developer & Problem Solver</h1>
+        <p>I build intuitive, accessible web experiences that solve real-world problems. From ITI notes to game hubs, I blend code with clarity.</p>
+        <a href="#projects" class="btn-primary">View My Work</a>
+    </section>
+    
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2>Featured Projects</h2>
+            <div class="grid">
+                <div class="project-card">
+                    <img src="https://via.placeholder.com/400x200/10B981/FFFFFF?text=ITI+Notes" alt="Basic ITI Notes">
+                    <div class="project-info">
+                        <h3>Basic ITI Notes</h3>
+                        <p>Simplifying ITI learning—notes, assignments, and support in one place.</p>
+                        <a href="#" class="project-link">View Project</a>
+                    </div>
+                </div>
+                <!-- Add more cards for: Software Downloads, Learning Space, Computer Centre, Epic Games, Experiments -->
+                <div class="project-card">
+                    <img src="https://via.placeholder.com/400x200/047857/FFFFFF?text=Software+Downloads" alt="ITI Software">
+                    <div class="project-info">
+                        <h3>ITI Software Downloads</h3>
+                        <p>A site for downloading software used in ITI courses.</p>
+                        <a href="#" class="project-link">View Project</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <section id="about" class="about">
+        <h2>About Me</h2>
+        <p>I'm a passionate full-stack developer from Kashmir, focusing on accessible web apps, SEO, and educational tools. Always up for collaborations!</p>
+    </section>
+    
+    <section id="contact" class="contact">
+        <h2>Get In Touch</h2>
+        <p>Reach out for projects or hello: <a href="mailto:you@email.com">email@moeezmir.com</a> | Kashmir</p>
+    </section>
+</body>
+</html>
