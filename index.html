@@ -1,481 +1,945 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mir Moeez — Developer & Designer</title>
+    <meta
+      name="description"
+      content="Portfolio of Mir Moeez, a frontend developer skilled in Fullstack Development and responsive design."
+    />
 
-<!DOCTYPE html>
-<html lang="en" data-theme="auto">
+    <!-- Preconnect to critical origins -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin />
+    <link
+      rel="preconnect"
+      href="https://user-images.githubusercontent.com"
+      crossorigin
+    />
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Mir Moeez — Portfolio</title>
-  <meta name="description"
-    content="Portfolio of Mir Moeez, a frontend developer skilled in Fullstack Development and responsive design." />
-  <link rel="icon" type="image/png" href="images/icon.png" />
-  <meta name="keywords"
-    content=" Moeez,Mir, Mir Moeez, Moeez Mir, frontend developer, web developer, HTML, CSS, JavaScript, React, Vue, Tailwind, responsive design, portfolio, Srinagar, Java, Python, C, C++, Ms Office" />
-  <meta name="msvalidate.01" content="4F467DBCCB63AEE0AEF06C12B424DFDC" /> <!--for Bing Webmaster Tools -->
-  <meta name="author" content="Mir Moeez" />
-  <meta name="color-scheme" content="light dark">
-  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-    crossorigin="anonymous" referrerpolicy="no-referrer">
-  <link rel="stylesheet" href="styles.css" />
-</head>
+    <!-- DNS prefetch for form API -->
+    <link rel="dns-prefetch" href="https://api.web3forms.com" />
 
-<body> <a class="skip-link" href="#main">Skip to content</a>
-  <header class="site-header" role="banner">
-    <nav class="navbar" role="navigation" aria-label="Main"> <a class="nav-logo" href="#home"
-        aria-label="Go to home">Mir Moeez</a>
-      <div class="nav-actions"> <!-- Mobile menu toggle --> <button class="nav-toggle" type="button"
-          aria-expanded="false" aria-controls="primary-menu" aria-label="Toggle menu"> <i class="fa-solid fa-bars"></i>
-        </button> </div>
-      <ul id="primary-menu" class="nav-menu">
-        <li><a class="nav-link" href="#home">Home</a></li>
-        <li><a class="nav-link" href="#about">About</a></li>
-        <li><a class="nav-link" href="#skills">Skills</a></li>
-        <li><a class="nav-link" href="#projects">Projects</a></li>
-        <li><a class="nav-link" href="#contact">Contact</a></li>
+    <!-- Critical resource hints -->
+    <link rel="preload" href="styles.css" as="style" />
+    <link
+      rel="preload"
+      href="images/pro.webp"
+      as="image"
+      fetchpriority="high"
+    />
+
+    <!-- Favicon - keep webp but add fallback for older browsers -->
+    <link rel="icon" type="image/webp" href="images/icon.webp" />
+
+    <!-- Open Graph for social sharing -->
+    <meta property="og:title" content="Mir Moeez — Portfolio" />
+    <meta
+      property="og:description"
+      content="Frontend developer building intuitive, accessible web experiences."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="images/pro.webp" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Mir Moeez — Portfolio" />
+    <meta
+      name="twitter:description"
+      content="Frontend developer building intuitive, accessible web experiences."
+    />
+
+    <!-- Existing meta -->
+    <meta
+      name="keywords"
+      content="Moeez,Mir,Mir Moeez,Moeez Mir,frontend developer,web developer,HTML,CSS,JavaScript,React,Vue,Tailwind,responsive design,portfolio,Srinagar,Java,Python,C,C++,Ms Office"
+    />
+    <meta name="msvalidate.01" content="4F467DBCCB63AEE0AEF06C12B424DFDC" />
+    <meta name="author" content="Mir Moeez" />
+    <meta name="color-scheme" content="light dark" />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=JetBrains+Mono:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- CURSOR -->
+    <div class="cursor" id="cursor"></div>
+    <div class="cursor-ring" id="cursorRing"></div>
+
+    <!-- NAV -->
+    <nav>
+      <a href="#hero" class="nav-logo">Mir Moeez</a>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#experience">Work</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#contact">Contact</a></li>
       </ul>
+      <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
     </nav>
-  </header>
 
-  <main id="main">
-    <!-- Hero -->
-    <section id="home" class="hero section">
-      <div class="container hero-grid">
-        <div class="hero-content">
-          <h1 class="hero-title">Hi, I'm Mir <span class="highlight">Moeez</span></h1>
-          <div class="text">
-            <span class="sch">I am a &nbsp;</span>
-            <span class="typing"></span>
+    <!-- HERO -->
+    <section id="hero">
+      <div class="hero-left">
+        <p class="hero-eyebrow">
+          // Full-Stack Developer &amp; Designer — Srinagar, Kashmir
+        </p>
+        <h1 class="hero-name">
+          Mir<br />
+          <span>Moeez</span>
+        </h1>
+        <p class="hero-tagline">
+          Building digital experiences where craft meets code — from the Valley
+          to the world.
+        </p>
+        <div class="hero-cta">
+          <a href="resume.pdf" class="btn-primary">Download My Resume</a>
+          <a href="#contact" class="btn-ghost">Get in Touch →</a>
+        </div>
+      </div>
+      <div class="hero-right">
+        <div class="hero-graphic">
+          <div class="hero-card">
+            <div class="card-label">Experience</div>
+            <div class="card-value">4+</div>
+            <div class="card-sub">Years of freelancing</div>
           </div>
-
-          <p class="hero-description">I build intuitive, accessible web experiences that solve real-world problems. I
-            blend code with clarity and creativity.</p>
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="resume.pdf" download>Download my Resume</a>
-            <a class="btn btn-secondary" href="#contact">Get In Touch</a>
+          <div class="hero-card">
+            <div class="card-label" style="color: rgba(245, 240, 232, 0.4)">
+              Current Role
+            </div>
+            <div class="card-value" style="font-size: 2rem">Instructor</div>
+            <div class="card-sub">Skyline Computers</div>
           </div>
         </div>
-        <figure class="hero-figure">
-          <img src="images/pro.gif" alt="Current Situation" loading="lazy" width="480" height="480">
-        </figure>
+        <div class="hero-line"></div>
       </div>
     </section>
 
-    <!-- About -->
-    <section id="about" class="section">
-      <div class="container">
-        <h2 class="section-title">About Me</h2>
-        <div class="about-grid">
-          <div>
-            <p>I design and develop accessible, user-friendly websites and applications that solve practical problems.
-              From fixing layout issues to writing clean, scalable code, I focus on building solutions that work—and
-              teaching others how to do the same.</p>
-
-            <p>I'm a passionate full-stack developer with experience in modern web technologies. I love creating
-              user-friendly applications that make a difference in people's lives. Alongside my expertise in frontend
-              and backend development, I also program in Java, Python, C, and C++ building versatile solutions across
-              different platforms and teaching these languages to help others grow their skills.</p>
-            <ul class="stats">
-              <li class="stat"><span class="stat-num">5+</span><span class="stat-label">Years Experience</span></li>
-              <li class="stat"><span class="stat-num">15+</span><span class="stat-label">Projects Completed</span></li>
-              <li class="stat"><span class="stat-num">5+</span><span class="stat-label">Technologies</span></li>
-            </ul>
+    <!-- ABOUT -->
+    <section id="about">
+      <div class="about-grid">
+        <div>
+          <div class="section-header">
+            <span class="section-num">01</span>
+            <h2 class="section-title">About</h2>
           </div>
-          <div class="icon-card" aria-hidden="true"><img src="images/busy.gif" alt="Gif Which Says Busy"></div>
+          <blockquote class="about-quote">
+            "Curiosity turned into craft. Craft turned into a career."
+          </blockquote>
+          <div class="about-stats">
+            <div class="stat-item">
+              <div class="stat-val">4+</div>
+              <div class="stat-label">Years Freelancing</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-val">3</div>
+              <div class="stat-label">Teaching Roles</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-val">5</div>
+              <div class="stat-label">Languages Spoken</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-val">∞</div>
+              <div class="stat-label">Lines of Code</div>
+            </div>
+          </div>
+        </div>
+        <div class="about-body">
+          <p>
+            I'm Mir Moeez — a full-stack developer, designer, and educator based
+            in Srinagar, Kashmir. What started as curiosity about computers
+            evolved into a multi-year journey building real products for real
+            people.
+          </p>
+          <p>
+            Since 2021, I've freelanced across the full spectrum of web work —
+            designing systems, writing backends, and shipping polished frontends
+            for clients spanning personal brands to business platforms. I care
+            deeply about the intersection of aesthetics and function.
+          </p>
+          <p>
+            Beyond building, I've spent years in the classroom. At Swift Pvt ITI
+            and now Skyline Computers, I teach programming, web technologies,
+            database management, and operating systems — helping the next
+            generation of developers find their footing in tech.
+          </p>
+          <p>
+            Currently pursuing BCA Honours at Caset College of Computer Science,
+            I continue to grow, collaborate, and push what's possible through
+            digital craft.
+          </p>
         </div>
       </div>
     </section>
 
-<!-- Skills -->
-<section id="skills" class="section">
-  <div class="container">
-    <h2 class="section-title">Skills & Technologies</h2>
-    <div class="skills-grid">
-      <!-- Frontend -->
-      <section class="skill-category">
-        <h3 class="skill-title">Frontend</h3>
-        <ul class="skill-items">
-          <li class="skill-item">
-            <div class="skill-card">
-              <div class="card-top">
-                <i class="fab fa-html5"></i>
-                <span>HTML5</span>
-              </div>
-              <div class="card-bottom">
-                Semantic markup, accessibility, modern web standards
-              </div>
-            </div>
-          </li>
-          <li class="skill-item">
-            <div class="skill-card">
-              <div class="card-top">
-                <i class="fab fa-css3-alt"></i>
-                <span>CSS3</span>
-              </div>
-              <div class="card-bottom">
-                Flexbox, Grid, Animations, Responsive Design
-              </div>
-            </div>
-          </li>
-          <li class="skill-item">
-            <div class="skill-card">
-              <div class="card-top">
-                <i class="fab fa-js"></i>
-                <span>JavaScript</span>
-              </div>
-              <div class="card-bottom">
-                ES6+, DOM manipulation, async programming
-              </div>
-            </div>
-          </li>
-          <li class="skill-item">
-            <div class="skill-card">
-              <div class="card-top">
-                <i class="fab fa-react"></i>
-                <span>React</span>
-              </div>
-              <div class="card-bottom">
-                Components, Hooks, State Management, JSX
-              </div>
-            </div>
-          </li>
-          <li class="skill-item">
-            <div class="skill-card">
-              <div class="card-top">
-                <i class="fab fa-vuejs"></i>
-                <span>Vue.js</span>
-              </div>
-              <div class="card-bottom">
-                Reactive components, Vuex, Vue Router
-              </div>
-            </div>
-          </li>
-        </ul>
-      </section>
+    <!-- EXPERIENCE -->
+    <section id="experience">
+      <div class="section-header reveal">
+        <span class="section-num">02</span>
+        <h2 class="section-title">Experience</h2>
+        <div class="section-divider"></div>
+      </div>
 
-      <!-- Backend -->
-      <section class="skill-category">
-        <h3 class="skill-title">Backend</h3>
-        <ul class="skill-items">
-          <li class="skill-item">
-            <div class="skill-card">
-              <div class="card-top">
-                <i class="fab fa-node-js"></i>
-                <span>Node.js</span>
-              </div>
-              <div class="card-bottom">
-                Server-side JavaScript, Express, APIs
-              </div>
+      <div class="exp-list">
+        <div class="exp-item reveal">
+          <div class="exp-meta">
+            <div class="exp-dates">Oct 2025 — Present</div>
+            <div class="exp-company">Skyline<br />Computers</div>
+            <div class="exp-loc">Srinagar, J&K</div>
+          </div>
+          <div class="exp-content">
+            <div class="exp-role">Computer Instructor</div>
+            <p class="exp-desc">
+              Teaching computer science subjects and empowering students with
+              both theoretical foundations and applied practical skills.
+              Responsible for curriculum delivery, student assessment, and
+              fostering a love of technology in the classroom.
+            </p>
+            <div class="exp-tags">
+              <span class="exp-tag">Teaching</span>
+              <span class="exp-tag">Mentorship</span>
+              <span class="exp-tag">Curriculum Design</span>
             </div>
-          </li>
-          <li class="skill-item">
-            <div class="skill-card">
-              <div class="card-top">
-                <i class="fab fa-python"></i>
-                <span>Python</span>
-              </div>
-              <div class="card-bottom">
-                Django, Flask, Data Science, Automation
-              </div>
-            </div>
-          </li>
-          <li class="skill-item">
-            <div class="skill-card">
-              <div class="card-top">
-                <i class="fas fa-database"></i>
-                <span>MongoDB</span>
-              </div>
-              <div class="card-bottom">
-                NoSQL database, JSON documents, scalability
-              </div>
-            </div>
-          </li>
-          <li class="skill-item">
-            <div class="skill-card">
-              <div class="card-top">
-                <i class="fas fa-server"></i>
-                <span>Express.js</span>
-              </div>
-              <div class="card-bottom">
-                Fast web framework for Node.js, REST APIs
-              </div>
-            </div>
-          </li>
-          <li class="skill-item">
-            <div class="skill-card">
-              <div class="card-top">
-                <i class="fas fa-fire"></i>
-                <span>Firebase</span>
-              </div>
-              <div class="card-bottom">
-                Real-time database, authentication, hosting
-              </div>
-            </div>
-          </li>
-        </ul>
-      </section>
+          </div>
+        </div>
 
-      <!-- Tools -->
-      <section class="skill-category">
-        <h3 class="skill-title">Tools & Others</h3>
-        <ul class="skill-items">
-          <li class="skill-item">
-            <div class="skill-card">
-              <div class="card-top">
-                <i class="fab fa-git-alt"></i>
-                <span>Git</span>
-              </div>
-              <div class="card-bottom">
-                Version control, branching, collaboration
-              </div>
+        <div class="exp-item reveal">
+          <div class="exp-meta">
+            <div class="exp-dates">Sep 2021 — Present</div>
+            <div class="exp-company">Freelance</div>
+            <div class="exp-loc">Remote / Global</div>
+          </div>
+          <div class="exp-content">
+            <div class="exp-role">Web Designer &amp; Developer</div>
+            <p class="exp-desc">
+              Over four years of independent client work spanning sleek personal
+              websites to complex business platforms. Delivering end-to-end
+              digital solutions — from initial concept and UI/UX design through
+              backend implementation and deployment — for a diverse range of
+              clients worldwide.
+            </p>
+            <div class="exp-tags">
+              <span class="exp-tag">Full-Stack Dev</span>
+              <span class="exp-tag">UI/UX Design</span>
+              <span class="exp-tag">Client Management</span>
+              <span class="exp-tag">Deployment</span>
             </div>
-          </li>
-          <li class="skill-item">
-            <div class="skill-card">
-              <div class="card-top">
-                <i class="fab fa-github"></i>
-                <span>GitHub</span>
-              </div>
-              <div class="card-bottom">
-                Code hosting, pull requests, CI/CD
-              </div>
-            </div>
-          </li>
-          <li class="skill-item">
-            <div class="skill-card">
-              <div class="card-top">
-                <i class="fas fa-cloud"></i>
-                <span>AWS</span>
-              </div>
-              <div class="card-bottom">
-                Cloud computing, EC2, S3, Lambda
-              </div>
-            </div>
-          </li>
-          <li class="skill-item">
-            <div class="skill-card">
-              <div class="card-top">
-                <i class="fab fa-docker"></i>
-                <span>Docker</span>
-              </div>
-              <div class="card-bottom">
-                Containerization, microservices, deployment
-              </div>
-            </div>
-          </li>
-          <li class="skill-item">
-            <div class="skill-card">
-              <div class="card-top">
-                <i class="fas fa-mobile-alt"></i>
-                <span>Responsive</span>
-              </div>
-              <div class="card-bottom">
-                Mobile-first design, all screen sizes
-              </div>
-            </div>
-          </li>
-        </ul>
-      </section>
-    </div>
-  </div>
-</section>
+          </div>
+        </div>
 
+        <div class="exp-item reveal">
+          <div class="exp-meta">
+            <div class="exp-dates">Oct 2023 — Aug 2025</div>
+            <div class="exp-company">Swift<br />Pvt ITI</div>
+            <div class="exp-loc">India</div>
+          </div>
+          <div class="exp-content">
+            <div class="exp-role">Computer Teacher</div>
+            <p class="exp-desc">
+              Taught a comprehensive range of computer science subjects over
+              nearly two years, empowering students with practical and
+              theoretical knowledge across MS Office, programming languages (C,
+              C++, Java, Python), web technologies (HTML, CSS, JavaScript),
+              database management (DBMS, SQL), accounting software (Tally,
+              Marg), and operating systems.
+            </p>
+            <div class="exp-tags">
+              <span class="exp-tag">C / C++ / Java</span>
+              <span class="exp-tag">Python</span>
+              <span class="exp-tag">Web Dev</span>
+              <span class="exp-tag">SQL / DBMS</span>
+              <span class="exp-tag">Tally</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
+    <!-- SKILLS -->
+    <section id="skills">
+      <div class="skills-inner">
+        <div class="section-header reveal">
+          <span class="section-num">03</span>
+          <h2 class="section-title">Skills</h2>
+          <div class="section-divider"></div>
+        </div>
+        <div class="skills-grid reveal">
+          <div class="skill-group">
+            <div class="skill-group-title">Frontend</div>
+            <div class="skill-item">
+              <span class="skill-dot"></span>HTML5 &amp; CSS3
+            </div>
+            <div class="skill-item">
+              <span class="skill-dot"></span>JavaScript (ES6+)
+            </div>
+            <div class="skill-item">
+              <span class="skill-dot"></span>Responsive Design
+            </div>
+            <div class="skill-item">
+              <span class="skill-dot"></span>UI/UX Principles
+            </div>
+            <div class="skill-item">
+              <span class="skill-dot"></span>Web Animation
+            </div>
+          </div>
+          <div class="skill-group">
+            <div class="skill-group-title">Backend</div>
+            <div class="skill-item">
+              <span class="skill-dot"></span>Back-End Development
+            </div>
+            <div class="skill-item">
+              <span class="skill-dot"></span>SQL &amp; DBMS
+            </div>
+            <div class="skill-item"><span class="skill-dot"></span>Python</div>
+            <div class="skill-item"><span class="skill-dot"></span>Java</div>
+            <div class="skill-item"><span class="skill-dot"></span>C / C++</div>
+          </div>
+          <div class="skill-group">
+            <div class="skill-group-title">Tools &amp; Business</div>
+            <div class="skill-item">
+              <span class="skill-dot"></span>Version Control (Git)
+            </div>
+            <div class="skill-item">
+              <span class="skill-dot"></span>Account Management
+            </div>
+            <div class="skill-item">
+              <span class="skill-dot"></span>MS Office Suite
+            </div>
+            <div class="skill-item">
+              <span class="skill-dot"></span>Tally / Marg ERP
+            </div>
+            <div class="skill-item">
+              <span class="skill-dot"></span>Deployment &amp; Hosting
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section id="education">
+      <div class="section-header reveal">
+        <span class="section-num">04</span>
+        <h2 class="section-title">Education</h2>
+        <div class="section-divider"></div>
+      </div>
+      <div class="edu-grid reveal">
+        <div class="edu-card" data-num="01">
+          <div class="edu-degree">BCA Honours</div>
+          <div class="edu-school">Caset College of Computer Science</div>
+          <div class="edu-period">Oct 2025 — Oct 2026</div>
+        </div>
+        <div class="edu-card" data-num="02">
+          <div class="edu-degree">BCA</div>
+          <div class="edu-school">Caset College of Computer Science</div>
+          <div class="edu-period">Oct 2022 — Oct 2025</div>
+        </div>
+        <div class="edu-card" data-num="03">
+          <div class="edu-degree">10th Grade</div>
+          <div class="edu-school">New Caset School</div>
+          <div class="edu-period">Completed Nov 2019</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LANGUAGES -->
+    <section id="languages">
+      <div class="lang-inner">
+        <div class="section-header reveal">
+          <span class="section-num">05</span>
+          <h2 class="section-title" style="color: var(--paper)">Languages</h2>
+          <div class="section-divider"></div>
+        </div>
+        <div class="lang-row reveal">
+          <div class="lang-item">
+            <div class="lang-name">Kashmiri</div>
+            <div class="lang-level">Native</div>
+            <div class="lang-bar">
+              <div class="lang-bar-fill" style="width: 100%"></div>
+            </div>
+          </div>
+          <div class="lang-item">
+            <div class="lang-name">English</div>
+            <div class="lang-level">Full Professional</div>
+            <div class="lang-bar">
+              <div class="lang-bar-fill" style="width: 95%"></div>
+            </div>
+          </div>
+          <div class="lang-item">
+            <div class="lang-name">Urdu</div>
+            <div class="lang-level">Professional Working</div>
+            <div class="lang-bar">
+              <div class="lang-bar-fill" style="width: 80%"></div>
+            </div>
+          </div>
+          <div class="lang-item">
+            <div class="lang-name">Arabic</div>
+            <div class="lang-level">Elementary</div>
+            <div class="lang-bar">
+              <div class="lang-bar-fill" style="width: 25%"></div>
+            </div>
+          </div>
+          <div class="lang-item">
+            <div class="lang-name">Spanish</div>
+            <div class="lang-level">Elementary</div>
+            <div class="lang-bar">
+              <div class="lang-bar-fill" style="width: 20%"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
     <!-- Projects -->
     <section id="projects" class="section">
       <div class="container">
         <h2 class="section-title">Projects</h2>
         <div class="projects-grid">
           <article class="project-card">
-            <img class="project-image" src="images/sn.png" alt="Basic ITI Notes website preview" loading="lazy"
-              width="640" height="360">
+            <img
+              class="project-image"
+              src="images/sn.webp"
+              alt="Skyline Computer Notes website showing ITI course materials interface"
+              loading="lazy"
+              width="640"
+              height="360"
+              decoding="async"
+            />
             <div class="project-content">
               <h3 class="project-title">Skyline Computer Notes</h3>
-              <p class="project-description">Simplifying Computer learning—notes, assignments, and support in one place.
+              <p class="project-description">
+                Simplifying Computer learning—notes, assignments, and support in
+                one place.
               </p>
-              <a class="project-link" href="https://skylinenotes.netlify.app/" target="_blank" rel="noopener">View
-                Project</a>
-              <a class="btn" href="https://github.com/moeezmir/Skyline-computers-notes-Website.git" target="_blank"
-                rel="noopener">Repo</a>
+              <a
+                class="project-link"
+                href="https://skylinenotes.netlify.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                >View Project</a
+              >
+              <a
+                class="btn"
+                href="https://github.com/moeezmir/Skyline-computers-notes-Website.git"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Repo</a
+              >
             </div>
           </article>
+
           <article class="project-card">
-            <img class="project-image" src="images/rb.png" alt="Software Site preview" loading="lazy" width="640"
-              height="360">
+            <img
+              class="project-image"
+              src="images/rb.webp"
+              alt="Resume Builder application interface with form fields"
+              loading="lazy"
+              width="640"
+              height="360"
+              decoding="async"
+            />
             <div class="project-content">
               <h3 class="project-title">Resume Builder</h3>
-              <p class="project-description">A fun Experiment for Building Resumes and CVs. Use this to Make your Resume
-                and get your Dream Job.
+              <p class="project-description">
+                A fun Experiment for Building Resumes and CVs. Use this to Make
+                your Resume and get your Dream Job.
               </p>
-              <a class="project-link" href="https://resugencv.netlify.app/" target="_blank" rel="noopener">View
-                Project</a>
-              <a class="btn" href="https://github.com/moeezmir/Resume-Builder.git" target="_blank"
-                rel="noopener">Repo</a>
+              <a
+                class="project-link"
+                href="https://resugencv.netlify.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                >View Project</a
+              >
+              <a
+                class="btn"
+                href="https://github.com/moeezmir/Resume-Builder.git"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Repo</a
+              >
             </div>
           </article>
+
           <article class="project-card">
-            <img class="project-image" src="images/nn.png" alt="Neuroniche Academy preview" loading="lazy" width="640"
-              height="360">
+            <img
+              class="project-image"
+              src="images/nn.webp"
+              alt="Neuroniche Academy learning platform homepage"
+              loading="lazy"
+              width="640"
+              height="360"
+              decoding="async"
+            />
             <div class="project-content">
               <h3 class="project-title">Neuroniche Academy</h3>
-              <p class="project-description">An innovative learning space built to empower curious minds.</p>
-              <a class="project-link" href="https://neuroniche.netlify.app/" target="_blank" rel="noopener">View
-                Project</a>
-              <a class="btn" href="https://github.com/moeezmir/Neuroniche-Academy.git" target="_blank"
-                rel="noopener">Repo</a>
+              <p class="project-description">
+                An innovative learning space built to empower curious minds.
+              </p>
+              <a
+                class="project-link"
+                href="https://neuroniche.netlify.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                >View Project</a
+              >
+              <a
+                class="btn"
+                href="https://github.com/moeezmir/Neuroniche-Academy.git"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Repo</a
+              >
             </div>
           </article>
+
           <article class="project-card">
-            <img class="project-image" src="images/nm.png" alt="Notemaker preview" loading="lazy" width="640"
-              height="360">
+            <img
+              class="project-image"
+              src="images/nm.webp"
+              alt="NoteMaker application showing note creation interface"
+              loading="lazy"
+              width="640"
+              height="360"
+              decoding="async"
+            />
             <div class="project-content">
               <h3 class="project-title">NoteMaker</h3>
-              <p class="project-description">Uses JS to save and add notes and uses them to remember staff.</p>
-              <a class='project-link' href='https://moeezmir.netlify.app/projects/notemaker' rel='noopener' target='_blank'>View Project</a>
-              <a class="btn" href="https://github.com/moeezmir/Notemaker.git" target="_blank" rel="noopener">Repo</a>
+              <p class="project-description">
+                Uses JS to save and add notes and uses them to remember staff.
+              </p>
+              <a
+                class="project-link"
+                href="https://moeezmir.netlify.app/projects/notemaker"
+                target="_blank"
+                rel="noopener noreferrer"
+                >View Project</a
+              >
+              <a
+                class="btn"
+                href="https://github.com/moeezmir/Notemaker.git"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Repo</a
+              >
             </div>
           </article>
+
           <article class="project-card">
-            <img class="project-image" src="images/gnd.png" alt="Games Network Direct preview" loading="lazy"
-              width="640" height="360">
+            <img
+              class="project-image"
+              src="images/gnd.webp"
+              alt="Games Network Direct game download portal"
+              loading="lazy"
+              width="640"
+              height="360"
+              decoding="async"
+            />
             <div class="project-content">
               <h3 class="project-title">Games Network Direct</h3>
-              <p class="project-description">Your go-to hub for safe, speedy access to epic games.</p>
-              <a class="project-link" href="https://gamesnetworkdirect.netlify.app/" target="_blank" rel="noopener">View
-                Project</a>
-              <a class="btn" href="https://github.com/moeezmir/Games-Network-Direct.git" target="_blank"
-                rel="noopener">Repo</a>
+              <p class="project-description">
+                Your go-to hub for safe, speedy access to epic games.
+              </p>
+              <a
+                class="project-link"
+                href="https://gamesnetworkdirect.netlify.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                >View Project</a
+              >
+              <a
+                class="btn"
+                href="https://github.com/moeezmir/Games-Network-Direct.git"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Repo</a
+              >
             </div>
           </article>
+
           <article class="project-card">
-            <img class="project-image" src="images/more.png" alt="Other projects preview" loading="lazy" width="640"
-              height="360" style="object-fit:cover">
+            <img
+              class="project-image"
+              src="images/more.webp"
+              alt="Collection of additional project thumbnails"
+              loading="lazy"
+              width="640"
+              height="360"
+              decoding="async"
+              style="object-fit: cover"
+            />
             <div class="project-content">
               <h3 class="project-title">Other Projects</h3>
-              <p class="project-description">Explore experiments, utilities, and in-progress ideas.</p>
-              <a class='project-link' href='/projects' rel='noopener' target='_blank'>View Project</a>
-              <a class="btn" href="https://github.com/moeezmir" target="_blank" rel="noopener">To GitHub</a>
+              <p class="project-description">
+                Explore experiments, utilities, and in-progress ideas.
+              </p>
+              <a class="project-link" href="projects.html">View Project</a>
+              <a
+                class="btn"
+                href="https://github.com/moeezmir"
+                target="_blank"
+                rel="noopener noreferrer"
+                >To GitHub</a
+              >
             </div>
           </article>
         </div>
       </div>
     </section>
-
-    <!-- Contact -->
-    <section id="contact" class="section">
-      <div class="container">
-        <h2 class="section-title">Get In Touch</h2>
-        <div class="contact-grid">
-          <div>
-            <h3>Let's work together!</h3>
-            <p>Always interested in new opportunities and meaningful projects. Reach out to collaborate or just say
-              hello.</p>
-
-            <ul class="contact-methods">
-              <li class="contact-method">
-                <i class="fas fa-envelope" aria-hidden="true"></i>
-                <div>
-                  <h4>Email</h4>
-                  <p><a href="mailto:moeezmir2019@gmail.com">moeezmir2019@gmail.com</a></p>
-                </div>
-              </li>
-              <li class="contact-method">
-                <i class="fas fa-phone" aria-hidden="true"></i>
-                <div>
-                  <h4>Phone</h4>
-                  <p><a href="tel:+917006172095">+91 7006172095</a></p>
-                </div>
-              </li>
-              <li class="contact-method">
-                <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
-                <div>
-                  <h4>Rawalpora, Srinagar, 190005</h4>
-                  <p>Kashmir</p>
-                </div>
-              </li>
-            </ul>
-
-        <div class="social-links" aria-label="Social links">
-    <a class="social-link" href="https://github.com/moeezmir" aria-label="GitHub" target="_blank" rel="noopener">
-        <i class="fab fa-github"></i>
-    </a>
-    <a class="social-link" href="https://www.linkedin.com/in/mir-moeez-860b5b334" aria-label="LinkedIn" target="_blank" rel="noopener">
-        <i class="fab fa-linkedin"></i>
-    </a>
-    <a class="social-link" href="https://x.com/thypholosion" aria-label="X (Twitter)" target="_blank" rel="noopener">
-        <i class="fab fa-x-twitter"></i>
-    </a>
-    <a class="social-link" href="https://www.facebook.com/moeezmirI" aria-label="Facebook" target="_blank" rel="noopener">
-        <i class="fab fa-facebook"></i>
-    </a>
-    <a class="social-link" href="https://www.instagram.com/moeez_mir_" aria-label="Instagram" target="_blank" rel="noopener">
-        <i class="fab fa-instagram"></i>
-    </a>
-</div>
-          </div>
-
-
-          <form id="contact-form" class="contact-form" action="https://api.web3forms.com/submit" method="POST"
-            novalidate>
-            <input type="hidden" name="access_key" value="91e2017f-e868-4f78-9d67-47fef7350fd6">
-
-            <div class="form-row">
-              <div class="form-group">
-                <label for="name">Your Name</label>
-                <input id="name" name="name" type="text" placeholder="Your Name" required />
-              </div>
-              <div class="form-group">
-                <label for="email">Your Email</label>
-                <input id="email" name="email" type="email" placeholder="you@example.com" required />
-              </div>
-            </div>
-
-            <div class="form-group">
-              <label for="subject">What’s this message about?</label>
-              <select id="subject" name="subject" required>
-                <option value="" disabled selected>Choose a subject...</option>
-                <option>Frontend Development Collaboration</option>
-                <option>Website Redesign Proposal</option>
-                <option>Looking to Hire You for a Project</option>
-                <option>Need Help Debugging My Site</option>
-                <option>Interested in Learning HTML/CSS</option>
-                <option>Request for Technical Guidance</option>
-                <option>Issue with Portfolio Layout on Mobile</option>
-                <option>Font Awesome Icons Not Displaying</option>
-                <option>Just Saying Hello 👋</option>
-                <option>Appreciate Your Work!</option>
-              </select>
-            </div>
-
-            <div class="form-group">
-              <label for="message">Your Message</label>
-              <textarea id="message" name="message" placeholder="Write your message..." rows="5" required></textarea>
-              <p class="form-note">By submitting, you agree to be contacted about your request.</p>
-            </div>
-
-            <div id="form-status" class="form-status" role="status" aria-live="polite"></div>
-
-            <button id="submit-btn" type="submit" class="btn btn-primary">
-              <span class="btn-text">Send Message</span>
-            </button>
-          </form>
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="contact-bg-text">HELLO</div>
+      <div class="contact-inner reveal">
+        <h2 class="contact-title">Let's Build Something</h2>
+        <p class="contact-sub">
+          Open to freelance projects, collaborations, and conversations about
+          technology, education, and design.
+        </p>
+        <div class="contact-links">
+          <a href="mailto:moeezmir2019@gmail.com" class="contact-link">
+            <span class="contact-link-icon">✉</span>
+            <span class="contact-link-label">Email</span>
+            <span class="contact-link-value">moeezmir2019@gmail.com</span>
+          </a>
+          <a href="tel:+917006172095" class="contact-link">
+            <span class="contact-link-icon">✆</span>
+            <span class="contact-link-label">Phone</span>
+            <span class="contact-link-value">+91 7006 172 095</span>
+          </a>
+          <a
+            href="https://moeezmir.netlify.app/"
+            target="_blank"
+            class="contact-link"
+          >
+            <span class="contact-link-icon">◈</span>
+            <span class="contact-link-label">Portfolio</span>
+            <span class="contact-link-value">moeezmir.netlify.app</span>
+          </a>
+          <a
+            href="https://www.linkedin.com/in/mirmoeez-860b5b334"
+            target="_blank"
+            class="contact-link"
+          >
+            <span class="contact-link-icon">in</span>
+            <span class="contact-link-label">LinkedIn</span>
+            <span class="contact-link-value">Mir Moeez</span>
+          </a>
+          <a
+            href="https://www.facebook.com/moeezmirI"
+            target="_blank"
+            class="contact-link"
+          >
+            <span class="contact-link-icon"
+              ><svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z"
+                  stroke="black"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M15.75 8.25006H14.25C13.0074 8.25006 12 9.25742 12 10.5001V21.0001"
+                  stroke="black"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M9 13.5032H15"
+                  stroke="black"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                /></svg
+            ></span>
+            <span class="contact-link-label">Facebook</span>
+            <span class="contact-link-value">moeezmirI</span>
+          </a>
+          <a
+            href="https://www.instagram.com/moeez_mir_"
+            target="_blank"
+            class="contact-link"
+          >
+            <span class="contact-link-icon"
+              ><svg
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M15.5 12C15.5 13.933 13.933 15.5 12 15.5C10.067 15.5 8.5 13.933 8.5 12C8.5 10.067 10.067 8.5 12 8.5C13.933 8.5 15.5 10.067 15.5 12Z"
+                  stroke="black"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M6 3H18C19.6569 3 21 4.34315 21 6V18C21 19.6569 19.6569 21 18 21H6C4.34315 21 3 19.6569 3 18V6C3 4.34315 4.34315 3 6 3Z"
+                  stroke="black"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+                <path
+                  d="M17.01 7H17"
+                  stroke="black"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                /></svg
+            ></span>
+            <span class="contact-link-label">Instagram</span>
+            <span class="contact-link-value">moeez_mir_</span>
+          </a>
+           <a
+            href="https://github.com/moeezmir"
+            target="_blank"
+            class="contact-link"
+          >
+            <span class="contact-link-icon">Github</span>
+            <span class="contact-link-label">Github</span>
+            <span class="contact-link-value">moeezmir</span>
+          </a>
+           <a
+            href="https://x.com/thypholosion"
+            target="_blank"
+            class="contact-link"
+          >
+            <span class="contact-link-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M19.5 4L13.5 10.6207M11.0449 13.3298L5 20M3 4H7.5L21 20H17L3 4Z" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/> </svg></span>
+            <span class="contact-link-label">X</span>
+            <span class="contact-link-value">thypholosion</span>
+          </a>
         </div>
+        <p
+          style="
+            font-family: &quot;JetBrains Mono&quot;, monospace;
+            font-size: 0.62rem;
+            letter-spacing: 0.15em;
+            opacity: 0.35;
+            margin-top: 2rem;
+            text-transform: uppercase;
+          "
+        >
+          📍 Rawalpora, Srinagar, Kashmir — 190005
+        </p>
       </div>
     </section>
-  </main>
+    <!-- ================= CONTACT ================= -->
+    <section
+      id="contact"
+      class="reveal"
+      style="padding: 5rem; text-align: center"
+    >
+      <h2>Contact Me</h2>
 
-  <footer style="width:100%; text-align:center; background:#000; margin-top:20px;">
-    <p style="color:#fff; margin:0; padding:5px;">
-      © 2026 Mir Moeez | Fullstack Developer & Programmer. All rights reserved.
-    </p>
-    <img src="https://user-images.githubusercontent.com/74038190/212284115-f47cd8ff-2ffb-4b04-b5bf-4d1c14c0247f.gif"
-      alt="Footer Animation" style="width:100%; display:block; margin:0 auto;">
-    <img src="https://user-images.githubusercontent.com/74038190/212284158-e840e285-664b-44d7-b79b-e264b5e54825.gif"
-      alt="Footer Animation" style="width:100%; display:block; margin:0 auto;">
-    <img src="https://user-images.githubusercontent.com/74038190/212284115-f47cd8ff-2ffb-4b04-b5bf-4d1c14c0247f.gif"
-      alt="Footer Animation" style="width:100%; display:block; margin:0 auto;">
-  </footer>
-  <script src="script.js"></script>
-</body>
+      <form
+        id="contact-form"
+        class="contact-form"
+        action="https://api.web3forms.com/submit"
+        method="POST"
+        novalidate
+      >
+        <input
+          type="hidden"
+          name="access_key"
+          value="91e2017f-e868-4f78-9d67-47fef7350fd6"
+        />
+        <input
+          type="checkbox"
+          name="botcheck"
+          class="hidden"
+          style="display: none"
+          tabindex="-1"
+          autocomplete="off"
+        />
 
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">Your Name</label>
+            <input
+              id="name"
+              name="name"
+              type="text"
+              placeholder="Your Name"
+              required
+              autocomplete="name"
+            />
+          </div>
+          <div class="form-group">
+            <label for="email">Your Email</label>
+            <input
+              id="email"
+              name="email"
+              type="email"
+              placeholder="you@example.com"
+              required
+              autocomplete="email"
+            />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="subject">What's this message about?</label>
+          <select id="subject" name="subject" required>
+            <option value="" disabled selected>Choose a subject...</option>
+            <option value="frontend-collab">
+              Frontend Development Collaboration
+            </option>
+            <option value="redesign">Website Redesign Proposal</option>
+            <option value="hire">Looking to Hire You for a Project</option>
+            <option value="debug">Need Help Debugging My Site</option>
+            <option value="learn">Interested in Learning HTML/CSS</option>
+            <option value="guidance">Request for Technical Guidance</option>
+            <option value="mobile-issue">
+              Issue with Portfolio Layout on Mobile
+            </option>
+            <option value="icon-issue">
+              Font Awesome Icons Not Displaying
+            </option>
+            <option value="hello">Just Saying Hello 👋</option>
+            <option value="appreciate">Appreciate Your Work!</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="message">Your Message</label>
+          <textarea
+            id="message"
+            name="message"
+            placeholder="Write your message..."
+            rows="5"
+            required
+            minlength="10"
+            maxlength="1000"
+          ></textarea>
+          <p class="form-note">
+            By submitting, you agree to be contacted about your request.
+          </p>
+        </div>
+
+        <div
+          id="form-status"
+          class="form-status"
+          role="status"
+          aria-live="polite"
+        ></div>
+
+        <button id="submit-btn" type="submit" class="btn btn-primary">
+          <span class="btn-text">Send Message</span>
+        </button>
+      </form>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <span class="footer-logo">Mir Moeez</span>
+      <span>© 2025 — Developer &amp; Designer</span>
+      <span>Srinagar, Kashmir 🏔</span>
+    </footer>
+
+    <script>
+      // CURSOR
+      const cursor = document.getElementById("cursor");
+      const ring = document.getElementById("cursorRing");
+      let mx = 0,
+        my = 0,
+        rx = 0,
+        ry = 0;
+
+      document.addEventListener("mousemove", (e) => {
+        mx = e.clientX;
+        my = e.clientY;
+        cursor.style.left = mx + "px";
+        cursor.style.top = my + "px";
+      });
+
+      function animateRing() {
+        rx += (mx - rx) * 0.12;
+        ry += (my - ry) * 0.12;
+        ring.style.left = rx + "px";
+        ring.style.top = ry + "px";
+        requestAnimationFrame(animateRing);
+      }
+      animateRing();
+
+      document
+        .querySelectorAll("a, button, .exp-item, .edu-card")
+        .forEach((el) => {
+          el.addEventListener("mouseenter", () => {
+            cursor.style.width = "20px";
+            cursor.style.height = "20px";
+            ring.style.width = "60px";
+            ring.style.height = "60px";
+          });
+          el.addEventListener("mouseleave", () => {
+            cursor.style.width = "10px";
+            cursor.style.height = "10px";
+            ring.style.width = "36px";
+            ring.style.height = "36px";
+          });
+        });
+
+      // SCROLL REVEAL
+      const reveals = document.querySelectorAll(".reveal");
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry, i) => {
+            if (entry.isIntersecting) {
+              entry.target.style.transitionDelay = (i % 3) * 0.12 + "s";
+              entry.target.classList.add("visible");
+            }
+          });
+        },
+        { threshold: 0.1 },
+      );
+      reveals.forEach((el) => observer.observe(el));
+
+      const skillFills = document.querySelectorAll(".skill-fill");
+
+      const skillObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.style.width = entry.target
+                .getAttribute("style")
+                .split(":")[1];
+            }
+          });
+        },
+        { threshold: 0.3 },
+      );
+
+      skillFills.forEach((el) => {
+        skillObserver.observe(el);
+      });
+
+      const hamburger = document.querySelector(".hamburger");
+      const navLinks = document.querySelector(".nav-links");
+
+      hamburger.addEventListener("click", () => {
+        hamburger.classList.toggle("active");
+        navLinks.classList.toggle("active");
+      });
+    </script>
+  </body>
 </html>
